@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { FC, PropsWithChildren } from "react";
 
 type CardProps = {
-  className: string;
+  className?: string;
 };
 
 const Card: FC<PropsWithChildren<CardProps>> = ({ children, className }) => {
