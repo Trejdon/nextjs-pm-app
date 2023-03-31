@@ -1,6 +1,8 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { FC, PropsWithChildren } from "react";
 
+// TODO: CVA needs an update to work properly with typescript 5, waiting on that from the owner
+
 const buttonClasses = cva(
   [
     "rounded-3xl",
