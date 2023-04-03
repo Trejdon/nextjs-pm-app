@@ -1,5 +1,12 @@
 import "@/styles/global.css";
+import { Inter } from "next/font/google";
 import GlassPane from "@/components/GlassPane";
+
+const inter = Inter({
+  variable: "--font-inter",
+  display: "auto",
+  subsets: ["latin"],
+});
 
 export default function DashboardLayout({
   children,
