@@ -13,6 +13,7 @@ const verifyJWT = async (jwt) => {
 
 export default async function middleware(req, res) {
   const { pathname } = req.nextUrl;
+
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -24,7 +25,7 @@ export default async function middleware(req, res) {
     return NextResponse.next();
   }
 
-  const jwt = req.cookies.get(process.env.COOKIE_NAME!);
+  const jwt = req.cookies.get(process.env.COOKIE_NAME);
 
   if (!jwt) {
     req.nextUrl.pathname = "/signin";
@@ -34,8 +35,7 @@ export default async function middleware(req, res) {
   try {
     await verifyJWT(jwt.value);
     return NextResponse.next();
-  } catch (error) {
-    console.error(error);
+  } catch (e) {
     req.nextUrl.pathname = "/signin";
     return NextResponse.redirect(req.nextUrl);
   }
