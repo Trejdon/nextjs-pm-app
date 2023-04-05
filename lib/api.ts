@@ -28,3 +28,12 @@ export const register = (user) => {
 export const signin = (user) => {
   return fetcher({ url: "/api/signin", method: "post", body: user });
 };
+
+export const createNewProject = (name: string) => {
+  return fetcher({
+    url: "/api/project",
+    method: "post",
+    body: { name },
+    json: true,
+  });
+};

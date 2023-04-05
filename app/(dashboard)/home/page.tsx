@@ -7,7 +7,8 @@ import { Suspense } from "react";
 import Greeting from "@/components/Greeting";
 import GreetingSkeleton from "@/components/GreetingSkeleton";
 import ProjectCard from "@/components/ProjectCard";
-import TaskCard from "@/components/TaskCard";
+import TaskCard from "@/components/TasksCard";
+import NewProject from "@/components/NewProject";
 
 // TODO: create a higher order withAuth function to auto check user auth before doing a data fetch
 // TODO: see Greeting component as well
@@ -52,10 +53,13 @@ export default async function Page() {
               </div>
             );
           })}
-          <div className="w-1/3 p-3">{/* new project here */}</div>
+          <div className="w-1/3 p-3">
+            <NewProject />
+          </div>
         </div>
         <div className="mt-6 flex-2 grow w-full flex">
           <div className="w-full">
+            {/* @ts-expect-error Server Component */}
             <TaskCard />
           </div>
         </div>

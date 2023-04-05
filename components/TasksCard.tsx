@@ -25,7 +25,7 @@ const getData = async () => {
 
   return tasks;
 };
-const TaskCard = async ({ title, tasks }) => {
+const TasksCard = async ({ title, tasks }) => {
   const data = tasks || (await getData());
 
   return (
@@ -62,4 +62,4 @@ const TaskCard = async ({ title, tasks }) => {
   );
 };
 
-export default TaskCard;
+export default TasksCard;
