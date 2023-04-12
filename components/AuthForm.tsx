@@ -48,12 +48,7 @@ export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
         setFormState({ ...initial });
       }
     },
-    [
-      formState.email,
-      formState.password,
-      formState.firstName,
-      formState.lastName,
-    ]
+    [mode, router, formState]
   );
 
   const content = mode === "register" ? registerContent : signinContent;
@@ -134,7 +129,7 @@ export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
               </span>
             </div>
             <div>
-              <Button type="submit">
+              <Button type="submit" intent="secondary">
                 {content.buttonText}
               </Button>
             </div>

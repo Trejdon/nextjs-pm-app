@@ -34,6 +34,7 @@ export default async function middleware(req, res) {
 
   try {
     await verifyJWT(jwt.value);
+    // TODO: Update this to redirect /home if valid JWT and / is requested
     return NextResponse.next();
   } catch (e) {
     req.nextUrl.pathname = "/signin";

@@ -5,7 +5,7 @@ import Card from "./Card";
 import { delay } from "@/lib/async";
 
 const getData = async () => {
-  await delay(3000);
+  await delay(2000);
   // Without delay this fetching would be instant, helps to simulate real fetching
   const user = await getUserFromCookie(cookies());
   return user;
@@ -24,7 +24,7 @@ const Greeting = async () => {
         </h4>
       </div>
       <div>
-        <Button>Today&apos;s Schedule</Button>
+        <Button size="large">Today&apos;s Schedule</Button>
       </div>
     </Card>
   );

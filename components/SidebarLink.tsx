@@ -1,13 +1,16 @@
 "use client";
 import Link from "next/link";
-import { Settings, User, Grid, Calendar } from "react-feather";
+import { Settings, User, Grid, Calendar, Icon } from "react-feather";
 // Hooks only work on the client side, therefore this entire component must be a client component
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { LinkType } from "./Sidebar";
 
-const icons = { Settings, User, Grid, Calendar };
+// Same result, cleaner syntax using the Record utility
+// const icons: { [index: string]: Icon } = { Settings, User, Grid, Calendar };
+const icons: Record<string, Icon> = { Settings, User, Grid, Calendar };
 
-const SidebarLink = ({ link }) => {
+const SidebarLink = ({ link }: { link: LinkType }) => {
   const pathname = usePathname();
   let isActive = false;
 
