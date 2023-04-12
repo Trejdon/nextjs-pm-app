@@ -3,7 +3,7 @@ import { getUserFromCookie } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { cookies } from "next/headers";
 
-const getData = async (id) => {
+const getData = async (id: string) => {
   const user = await getUserFromCookie(cookies());
 
   const project = await db.project.findFirst({
@@ -19,7 +19,7 @@ const getData = async (id) => {
   return project;
 };
 
-export default async function ProjectPage({ params }) {
+export default async function ProjectPage({ params }: { params: {id: string;}}) {
   const project = await getData(params.id);
 
   // TODO: Consider a better way to handle the page being blocked by the data load

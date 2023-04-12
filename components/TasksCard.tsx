@@ -1,6 +1,6 @@
 import { getUserFromCookie } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { TASK_STATUS } from "@prisma/client";
+import { Prisma, TASK_STATUS } from "@prisma/client";
 import { cookies } from "next/headers";
 import Button from "./Button";
 import Card from "./Card";
@@ -25,7 +25,17 @@ const getData = async () => {
 
   return tasks;
 };
-const TasksCard = async ({ title, tasks }) => {
+
+const dbTask = Prisma.validator<Prisma.TaskFindManyArgs>()({});
+
+type DBTask = Prisma.TaskGetPayload<typeof dbTask>;
+
+type TasksCardType = {
+  title?: string;
+  tasks?: DBTask[];
+};
+
+const TasksCard = async ({ title, tasks }: TasksCardType) => {
   const data = tasks || (await getData());
 
   return (
@@ -35,7 +45,9 @@ const TasksCard = async ({ title, tasks }) => {
           <span className="text-3xl text-gray-600">{title}</span>
         </div>
         <div>
-          <Button intent="text" className="text-violet-600">+ Create New</Button>
+          <Button intent="text" className="text-violet-600">
+            + Create New
+          </Button>
         </div>
       </div>
       <div>

@@ -1,7 +1,13 @@
 import Card from "./Card";
 import SidebarLink from "./SidebarLink";
 
-const links = [
+export type LinkType = {
+  label: string;
+  icon: string;
+  link: string;
+};
+
+const links: LinkType[] = [
   { label: "Home", icon: "Grid", link: "/home" },
   {
     label: "Calendar",
