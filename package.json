@@ -21,6 +21,7 @@
     "clsx": "^1.2.1",
     "cookie": "^0.5.0",
     "css-reset-and-normalize": "^2.3.6",
+    "cva": "npm:class-variance-authority@^0.5.2",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "jose": "^4.11.1",

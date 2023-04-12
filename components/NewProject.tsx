@@ -21,7 +21,9 @@ const NewProject = () => {
 
   return (
     <div className="px-6 py-8 hover:scale-105 transition-all ease-in-out duration-200 flex justify-center items-center">
-      <Button onClick={() => openModal()}>+ New Project</Button>
+      <Button type="submit" onClick={() => openModal()}>
+        + New Project
+      </Button>
 
       <Modal
         isOpen={isModalOpen}
@@ -36,7 +38,7 @@ const NewProject = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <Button >Create</Button>
+          <Button>Create</Button>
         </form>
       </Modal>
     </div>
